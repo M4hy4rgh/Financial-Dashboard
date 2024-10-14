@@ -1,7 +1,8 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
-import { Navbar } from "./components/Navbar";
+import  {Navbar, Card}  from "./components/index";
+
 import "./App.css";
 
 function App() {
@@ -9,10 +10,12 @@ function App() {
 
   return (
     <div className="flex justify-center items-center">
-      <h1 className="text-center text-3xl font-bold underline">Hello world!</h1>
+      
       <Navbar />
+      <Card />
     </div>
   );
 }
 
 export default App;
+

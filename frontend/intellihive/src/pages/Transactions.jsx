@@ -1,9 +1,8 @@
 import React from "react";
 import { Card, Navbar } from "../components/index";
 import { RiArrowDownSLine } from "react-icons/ri";
-import { Chart } from "react-google-charts";
 import { SlMagnifier } from "react-icons/sl";
-import { MdRefresh } from "react-icons/md";
+
 
 const Transactions = () => {
     return (

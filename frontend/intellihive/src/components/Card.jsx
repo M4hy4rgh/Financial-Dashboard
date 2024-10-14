@@ -1,5 +1,5 @@
 import React from "react";
-import check from "../assets/icons/check.svg";
+import check from "../assets/icons/checking.svg";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 const Card = () => {

@@ -14,6 +14,8 @@ import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 @RequiredArgsConstructor
@@ -51,8 +53,8 @@ public class UserServiceImpl implements UserService {
 
             Long lastUserId = users.get(users.size() - 1).getId();
 
-            AddressResponse residentialAddress = mapToAddressResponse(userRequest.getResidentialAddress());
-            AddressResponse mailingAddress = mapToAddressResponse(userRequest.getMailingAddress());
+            AddressResponse residentialAddress = mapToAddressResponse(userRequest.getResidentialAddress(), 1);
+            AddressResponse mailingAddress = mapToAddressResponse(userRequest.getMailingAddress(), 1);
 
             users.add(UserResponse.builder()
                     .id(lastUserId + 1)
@@ -93,17 +95,25 @@ public class UserServiceImpl implements UserService {
             });
             inputStream.close();
 
-            users.forEach(user -> {
-                if (user.getId().equals(Long.parseLong(userId))) {
-                    user.setFirstName(userRequest.getFirstName());
-                    user.setLastName(userRequest.getLastName());
-                    user.setUserName(userRequest.getUserName());
-                    user.setEmail(userRequest.getEmail());
-                    user.setPhoneNumber(userRequest.getPhoneNumber());
-                    user.setPassword(userRequest.getPassword());
-                    user.setResidentialAddress(mapToAddressResponse(userRequest.getResidentialAddress()));
-                    user.setMailingAddress(mapToAddressResponse(userRequest.getMailingAddress()));
-                    user.setUpdatedAt(ZonedDateTime.now(ZoneOffset.UTC));
+            UserResponse user = users.stream()
+                    .filter(u -> u.getId().equals(Long.parseLong(userId)))
+                    .findFirst()
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+
+            AddressResponse residentialAddress = mapToAddressResponse(userRequest.getResidentialAddress(), user.getResidentialAddress().getId());
+            AddressResponse mailingAddress = mapToAddressResponse(userRequest.getMailingAddress(), user.getMailingAddress().getId());
+
+            users.forEach(u -> {
+                if (u.getId().equals(Long.parseLong(userId))) {
+                    u.setFirstName(userRequest.getFirstName());
+                    u.setLastName(userRequest.getLastName());
+                    u.setUserName(userRequest.getUserName());
+                    u.setEmail(userRequest.getEmail());
+                    u.setPhoneNumber(userRequest.getPhoneNumber());
+                    u.setPassword(userRequest.getPassword());
+                    u.setResidentialAddress(residentialAddress);
+                    u.setMailingAddress(mailingAddress);
+                    u.setUpdatedAt(ZonedDateTime.now(ZoneOffset.UTC));
                 }
             });
 
@@ -247,8 +257,9 @@ public class UserServiceImpl implements UserService {
         return users;
     }
 
-    private AddressResponse mapToAddressResponse(AddressRequest addressRequest) {
+    private AddressResponse mapToAddressResponse(AddressRequest addressRequest, long addressId) {
         return AddressResponse.builder()
+                .id(addressId)
                 .street(addressRequest.getStreet())
                 .street2(addressRequest.getStreet2())
                 .city(addressRequest.getCity())
@@ -257,6 +268,5 @@ public class UserServiceImpl implements UserService {
                 .country(addressRequest.getCountry())
                 .build();
     }
-
 
 }

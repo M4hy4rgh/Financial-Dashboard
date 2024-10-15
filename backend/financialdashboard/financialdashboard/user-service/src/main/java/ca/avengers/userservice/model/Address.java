@@ -22,10 +22,9 @@
 
 package ca.avengers.userservice.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
 @Data

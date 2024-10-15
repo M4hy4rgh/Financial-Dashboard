@@ -1,6 +1,7 @@
 import React from 'react'
 import loginPic from '../assets/img/login.svg'
 import intellihive from '../assets/logo/intellihive.svg'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
@@ -41,24 +42,32 @@ const Login = () => {
               <input type="checkbox" className="checkbox " />
               <span className="text-sm">Remember me</span>
             </label>
-            <a href="#" className="text-sm text-[#004A98] hover:underline">
+            <Link
+              to="/forgot-password"
+              className="text-sm text-[#004A98] hover:underline"
+            >
               Forgot password?
-            </a>
+            </Link>
           </div>
 
-          <button
+          <Link
+          to="/"
             type="submit"
             className="btn bg-[#004A98] text-white w-full rounded-lg py-2"
           >
             Login
-          </button>
+          </Link>
 
           {/* Sign-up link */}
           <p className="text-center text-sm mt-4">
             Don't have an account?{" "}
-            <a href="#" className="text-[#004A98] font-medium hover:underline">
+            <Link
+              href="#"
+              className="text-[#004A98] font-medium hover:underline"
+              to="/signup"
+            >
               Sign up
-            </a>
+            </Link>
           </p>
         </form>
       </div>

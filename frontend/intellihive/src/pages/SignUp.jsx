@@ -1,6 +1,7 @@
 import React from "react";
 import signup from "../assets/img/signup.svg"; // Replace with your image path
 import intellihive from "../assets/logo/intellihive.svg"; // Replace with your logo path
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   return (
@@ -90,9 +91,9 @@ const SignUp = () => {
           {/* Login link */}
           <p className="text-center text-sm mt-4">
             Already have an account?{" "}
-            <a href="#" className="text-[#004A98] font-medium hover:underline">
+            <Link to="/login" className="text-[#004A98] font-medium hover:underline">
               Login
-            </a>
+            </Link>
           </p>
         </form>
       </div>

@@ -20,7 +20,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/transactions" className="py-4 text-base">
+          <Link to="/my-accounts" className="py-4 text-base">
             <MdAccountBalance />
             My Accounts
           </Link>
@@ -49,10 +49,13 @@ const Navbar = () => {
             Profile
           </Link>
         </li>
-        <button className="btn bg-[#004A98] w-40 absolute bottom-0 m-5 text-white">
+        <Link
+          className="btn bg-[#004A98] w-40 absolute bottom-0 m-5 text-white"
+          to="/login"
+        >
           <IoLogOut />
           Logout
-        </button>
+        </Link>
       </ul>
     </div>
   );

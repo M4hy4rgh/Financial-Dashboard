@@ -11,8 +11,6 @@ services:
     container_name: user-service
     environment:
       SPRING_PROFILES_ACTIVE: docker
-    depends_on:
-      - discovery-service
     networks:
       - intellihive
 
@@ -26,8 +24,6 @@ services:
     container_name: account-service
     environment:
       SPRING_PROFILES_ACTIVE: docker
-    depends_on:
-      - discovery-service
     networks:
       - intellihive
 
@@ -41,8 +37,6 @@ services:
     container_name: transaction-service
     environment:
       SPRING_PROFILES_ACTIVE: docker
-    depends_on:
-      - discovery-service
     networks:
       - intellihive
 

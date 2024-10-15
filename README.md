@@ -52,22 +52,22 @@ The IntelliHive financial dashboard offers a **minimalist** and **user-friendly*
 
 ---
 
-### **Technical Design**
-- **Frontend**:
+### **Technical Design** [ To Be Updated ]
+- **Frontend**: [ To Be Updated ]
   - **Pages**:
     1. **Sign-In Page**: A login screen for user access control, including a "Forgot Password" option.
     2. **Main Financial Dashboard**:
        - Account Overview: Display individual account balances.
        - Recent Transactions: List recent transactions for linked accounts.
        - Top Spending Categories: Show the user’s top spending categories in a simple card.
-  - **Technologies**: HTML, CSS, JavaScript (React.js)
+  - **Technologies**:
 
-- **Backend**:
+- **Backend**: [ To Be Updated ]
   - **Services**:
     1. **User Service**: Handles user authentication, password resets, and login attempts.
     2. **Account Service**: Provides account data, including balances and transaction history.
     3. **Transaction Service**: Manages user transaction data and spending categories.
-  - **Technologies**: Node.js (Express.js), RESTful APIs, Static JSON for demo data, PostgreSQL for the "should be" solution.
+  - **Technologies**: Java, RESTful APIs, Static JSON for demo data, PostgreSQL for the "should be" solution.
 
 ## Demo Solution vs. "Should Be" Solution
 

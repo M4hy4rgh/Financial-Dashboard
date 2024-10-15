@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import check from "../assets/icons/checking.svg";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { getIcon } from "../assets/index";
 
 // Default account data (used when no data is fetched)
 const defaultAccount = {
@@ -12,16 +14,14 @@ const defaultAccount = {
 };
 
 const Card = ({ account }) => {
+    const icon = getIcon(account.accountType.toLowerCase());
   return (
     <div className="w-full max-w-lg mx-auto">
       <div className="card bg-base-100 border border-[#004A98] rounded-xl shadow-lg">
         {/* Top section with icon and account details */}
         <div className="flex justify-between p-4 items-center">
           <img
-            src={
-              `../assets/icons/${account.accountType}.svg` ??
-              defaultAccount.imageUrl
-            }
+            src={icon}
             alt={account.accountType}
             className="w-16 h-16 sm:w-20 sm:h-20"
           />
@@ -42,10 +42,13 @@ const Card = ({ account }) => {
 
         {/* Action section */}
         <div className="card-actions justify-center py-3">
-          <a className="flex items-center gap-1 text-[#004A98] hover:underline text-sm sm:text-md">
+          <Link
+            className="flex items-center gap-1 text-[#004A98] hover:underline text-sm sm:text-md"
+            to="/transactions"
+          >
             See transactions
             <MdOutlineKeyboardArrowRight size={18} />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

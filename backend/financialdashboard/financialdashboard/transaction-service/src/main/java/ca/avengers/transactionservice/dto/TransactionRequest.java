@@ -1,4 +1,4 @@
-package ca.avengers.accountservice.dto;
+package ca.avengers.transactionservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,11 +11,17 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AccountRequest {
+public class TransactionRequest {
 
-    private String accountNumber;
-    private String accountType;
-    private BigDecimal balance;
-    private String userId;
+    private Long accountId;
+    private String transactionType;
+    private BigDecimal amount;
+    private String description;
+    private String source;
+    private String senderName;
+    private String senderAccountNumber;
+    private String senderEmail;
+    private String status;
+    private String category;
     private String currency;
 }

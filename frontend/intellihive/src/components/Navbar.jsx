@@ -5,6 +5,8 @@ import { FaMoneyBillTransfer, FaMoneyBills } from "react-icons/fa6";
 import { IoLogOut } from "react-icons/io5";
 import { IoMdSettings } from "react-icons/io";
 import intellihive from "../assets/logo/intellihive.svg"
+import { Link } from "react-router-dom";
+
 
 const Navbar = () => {
   return (
@@ -12,40 +14,40 @@ const Navbar = () => {
       <ul className="menu bg-white w-72 h-screen absolute left-0 shadow-md">
         <img src={intellihive} alt="intellihive" className="w-44 m-8" />
         <li>
-          <a className="py-4 text-base">
+          <Link to="/" className="py-4 text-base">
             <RiDashboardHorizontalFill />
             Dashboard
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="py-4 text-base">
+          <Link to="/transactions" className="py-4 text-base">
             <MdAccountBalance />
             My Accounts
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="py-4 text-base">
+          <Link to="/transfer-money" className="py-4 text-base">
             <FaMoneyBillTransfer />
             Transfer Money
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="py-4 text-base">
+          <Link to="/pay-bills" className="py-4 text-base">
             <FaMoneyBills />
             Pay Bills
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="py-4 text-base">
+          <Link to="/settings" className="py-4 text-base">
             <IoMdSettings />
             Settings
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="py-4 text-base">
+          <Link to="/profile" className="py-4 text-base">
             <MdAccountCircle />
             Profile
-          </a>
+          </Link>
         </li>
         <button className="btn bg-[#004A98] w-40 absolute bottom-0 m-5 text-white">
           <IoLogOut />

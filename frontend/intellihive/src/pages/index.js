@@ -6,6 +6,20 @@ import PayBills from "./PayBills";
 import Profile from "./Profile";
 import Settings from "./Settings";
 import TransferMoney from "./TransferMoney";
+import MyAccounts from "./MyAccounts";
+import ForgotPassword from "./ForgotPassword";
 
 
-export { Dashboard, Login, SignUp, Transactions, PayBills, Profile, Settings, TransferMoney };
+
+export {
+  Dashboard,
+  Login,
+  SignUp,
+  Transactions,
+  PayBills,
+  Profile,
+  Settings,
+  TransferMoney,
+  MyAccounts,
+  ForgotPassword,
+};

@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="min-h-screen flex justify-start items-start ">
+    <div className="fixed min-h-screen flex justify-start items-start ">
       <ul className="menu bg-white w-72 h-screen absolute left-0 shadow-md">
         <img src={intellihive} alt="intellihive" className="w-44 m-8" />
         <li>

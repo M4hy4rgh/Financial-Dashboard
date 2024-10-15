@@ -1,3 +1,3 @@
 rootProject.name = "financialdashboard"
 
-include("user-service")
+include("user-service", "transaction-service", "account-service")

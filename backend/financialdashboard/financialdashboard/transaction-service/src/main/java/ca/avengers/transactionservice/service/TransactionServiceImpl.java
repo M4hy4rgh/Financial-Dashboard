@@ -35,17 +35,26 @@ public class TransactionServiceImpl implements TransactionService {
         log.info("Getting transaction details for transaction id: {}", transactionId);
 
         try {
-            File userDataFile = new File("./data/transaction_data.json");
+//            File userDataFile = new File("./data/transaction_data.json");
+//
+//            if (!userDataFile.exists()) {
+//                log.error("File not found");
+//                throw new RuntimeException("File not found");
+//            }
+//
+//            InputStream inputStream = new FileInputStream(userDataFile);
+//            List<TransactionResponse> transactions = objectMapper.readValue(inputStream, new TypeReference<List<TransactionResponse>>() {
+//            });
+//            inputStream.close();
 
-            if (!userDataFile.exists()) {
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("data/transaction_data.json");
+
+            if (inputStream == null) {
                 log.error("File not found");
                 throw new RuntimeException("File not found");
             }
-
-            InputStream inputStream = new FileInputStream(userDataFile);
             List<TransactionResponse> transactions = objectMapper.readValue(inputStream, new TypeReference<List<TransactionResponse>>() {
             });
-            inputStream.close();
 
             TransactionResponse transaction = transactions.stream()
                     .filter(t -> t.getId().equals(transactionId))
@@ -70,17 +79,26 @@ public class TransactionServiceImpl implements TransactionService {
         log.info("Getting all transactions for account id: {}", accountId);
 
         try {
-            File userDataFile = new File("./data/transaction_data.json");
+//            File userDataFile = new File("./data/transaction_data.json");
+//
+//            if (!userDataFile.exists()) {
+//                log.error("File not found");
+//                throw new RuntimeException("File not found");
+//            }
+//
+//            InputStream inputStream = new FileInputStream(userDataFile);
+//            List<TransactionResponse> transactions = objectMapper.readValue(inputStream, new TypeReference<List<TransactionResponse>>() {
+//            });
+//            inputStream.close();
 
-            if (!userDataFile.exists()) {
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("data/transaction_data.json");
+
+            if (inputStream == null) {
                 log.error("File not found");
                 throw new RuntimeException("File not found");
             }
-
-            InputStream inputStream = new FileInputStream(userDataFile);
             List<TransactionResponse> transactions = objectMapper.readValue(inputStream, new TypeReference<List<TransactionResponse>>() {
             });
-            inputStream.close();
 
             log.info("Returning a list of transactions {}", transactions);
             return transactions.stream()

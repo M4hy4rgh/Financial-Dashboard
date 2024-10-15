@@ -34,16 +34,23 @@ public class UserServiceImpl implements UserService {
         try {
             log.info("Creating a new user: {}", userRequest.getFirstName());
 
-            File userDataFile = new File("./data/user_data.json");
+//            File userDataFile = new File("./data/user_data.json");
+//
+//            if (!userDataFile.exists()) {
+//                throw new FileNotFoundException("File not found: " + userDataFile.getAbsolutePath());
+//            }
+//
+//            InputStream inputStream = new FileInputStream(userDataFile);
+//            List<UserResponse> users = objectMapper.readValue(inputStream, new TypeReference<List<UserResponse>>() {
+//            });
+//            inputStream.close();
 
-            if (!userDataFile.exists()) {
-                throw new FileNotFoundException("File not found: " + userDataFile.getAbsolutePath());
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("data/user_data.json");
+            if (inputStream == null) {
+                throw new FileNotFoundException("File not found: data/user_data.json");
             }
 
-            InputStream inputStream = new FileInputStream(userDataFile);
-            List<UserResponse> users = objectMapper.readValue(inputStream, new TypeReference<List<UserResponse>>() {
-            });
-            inputStream.close();
+            List<UserResponse> users = objectMapper.readValue(inputStream, new TypeReference<List<UserResponse>>() {});
 
             boolean userNameExists = users.stream()
                     .anyMatch(user -> user.getUserName().equalsIgnoreCase(userRequest.getUserName()));
@@ -69,7 +76,7 @@ public class UserServiceImpl implements UserService {
                     .createdAt(ZonedDateTime.now(ZoneOffset.UTC))
                     .build());
 
-            objectMapper.writeValue(userDataFile, users);
+            objectMapper.writeValue(new File("data/user_data.json"), users);
 
             log.info("User {} is saved.", lastUserId + 1);
         } catch (IOException e) {
@@ -85,15 +92,21 @@ public class UserServiceImpl implements UserService {
         try {
             log.info("Updating a user with id: {}", userId);
 
-            File userDataFile = new File("./data/user_data.json");
-            if (!userDataFile.exists()) {
-                throw new FileNotFoundException("File not found: " + userDataFile.getAbsolutePath());
-            }
+//            File userDataFile = new File("./data/user_data.json");
+//            if (!userDataFile.exists()) {
+//                throw new FileNotFoundException("File not found: " + userDataFile.getAbsolutePath());
+//            }
+//
+//            InputStream inputStream = new FileInputStream(userDataFile);
+//            List<UserResponse> users = objectMapper.readValue(inputStream, new TypeReference<List<UserResponse>>() {
+//            });
+//            inputStream.close();
 
-            InputStream inputStream = new FileInputStream(userDataFile);
-            List<UserResponse> users = objectMapper.readValue(inputStream, new TypeReference<List<UserResponse>>() {
-            });
-            inputStream.close();
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("data/user_data.json");
+            if (inputStream == null) {
+                throw new FileNotFoundException("File not found: data/user_data.json");
+            }
+            List<UserResponse> users = objectMapper.readValue(inputStream, new TypeReference<List<UserResponse>>() {});
 
             UserResponse user = users.stream()
                     .filter(u -> u.getId().equals(Long.parseLong(userId)))
@@ -117,7 +130,7 @@ public class UserServiceImpl implements UserService {
                 }
             });
 
-            objectMapper.writeValue(userDataFile, users);
+            objectMapper.writeValue(new File("data/user_data.json"), users);
 
             log.info("User {} is updated", userId);
             return userId;
@@ -132,15 +145,20 @@ public class UserServiceImpl implements UserService {
         try {
             log.info("Deleting a user with id: {}", userId);
 
-            File userDataFile = new File("./data/user_data.json");
-            if (!userDataFile.exists()) {
-                throw new FileNotFoundException("File not found: " + userDataFile.getAbsolutePath());
-            }
+//            File userDataFile = new File("./data/user_data.json");
+//            if (!userDataFile.exists()) {
+//                throw new FileNotFoundException("File not found: " + userDataFile.getAbsolutePath());
+//            }
+//            InputStream inputStream = new FileInputStream(userDataFile);
+//            List<UserResponse> users = objectMapper.readValue(inputStream, new TypeReference<List<UserResponse>>() {
+//            });
+//            inputStream.close();
 
-            InputStream inputStream = new FileInputStream(userDataFile);
-            List<UserResponse> users = objectMapper.readValue(inputStream, new TypeReference<List<UserResponse>>() {
-            });
-            inputStream.close();
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("data/user_data.json");
+            if (inputStream == null) {
+                throw new FileNotFoundException("File not found: data/user_data.json");
+            }
+            List<UserResponse> users = objectMapper.readValue(inputStream, new TypeReference<List<UserResponse>>() {});
 
 //            users.removeIf(user -> user.getId().equals(Long.parseLong(userId)));
             users.forEach(user -> {
@@ -149,7 +167,8 @@ public class UserServiceImpl implements UserService {
                 }
             });
 
-            objectMapper.writeValue(userDataFile, users);
+            objectMapper.writeValue(new File("data/user_data.json"), users);
+
 
             log.info("User {} is deleted", userId);
         } catch (IOException e) {
@@ -161,7 +180,13 @@ public class UserServiceImpl implements UserService {
     public List<UserResponse> getAllUsers() {
         log.info("Retrieving a list of all users");
         try {
-            List<UserResponse> users = getUserResponseList();
+//            List<UserResponse> users = getUserResponseList();
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("data/user_data.json");
+            if (inputStream == null) {
+                throw new FileNotFoundException("File not found: data/user_data.json");
+            }
+            List<UserResponse> users = objectMapper.readValue(inputStream, new TypeReference<List<UserResponse>>() {});
+
             log.info("Returning all users");
             return users;
         } catch (IOException e) {
@@ -174,16 +199,25 @@ public class UserServiceImpl implements UserService {
     public UserResponse getUserById(String userId) {
         log.info("Retrieving a user with id: {}", userId);
         try {
-            List<UserResponse> users = getUserResponseList();
+//            List<UserResponse> users = getUserResponseList();
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("data/user_data.json");
+            if (inputStream == null) {
+                throw new FileNotFoundException("File not found: data/user_data.json");
+            }
+            List<UserResponse> users = objectMapper.readValue(inputStream, new TypeReference<List<UserResponse>>() {});
+
             UserResponse user = users.stream()
                     .filter(u -> u.getId().equals(Long.parseLong(userId)))
                     .findFirst()
-                    .orElse(null);
+                    .orElseThrow(() -> new RuntimeException("User not found"));
 
             log.info("Returning user with id: {}", userId);
             return user;
         } catch (IOException e) {
             log.error("Error reading user data from JSON file", e);
+            return null;
+        } catch (IllegalArgumentException e) {
+            log.error("Error retrieving user by id", e);
             return null;
         }
     }
@@ -192,16 +226,25 @@ public class UserServiceImpl implements UserService {
     public UserResponse getUserByUserName(String username) {
         log.info("Retrieving a user with username: {}", username);
         try {
-            List<UserResponse> users = getUserResponseList();
+//            List<UserResponse> users = getUserResponseList();
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("data/user_data.json");
+            if (inputStream == null) {
+                throw new FileNotFoundException("File not found: data/user_data.json");
+            }
+            List<UserResponse> users = objectMapper.readValue(inputStream, new TypeReference<List<UserResponse>>() {});
+
             UserResponse user = users.stream()
                     .filter(u -> u.getUserName().equalsIgnoreCase(username))
                     .findFirst()
-                    .orElse(null);
+                    .orElseThrow(() -> new RuntimeException("User not found"));
 
             log.info("Returning user with username: {}", username);
             return user;
         } catch (IOException e) {
             log.error("Error reading user data from JSON file", e);
+            return null;
+        } catch (IllegalArgumentException e) {
+            log.error("Error retrieving user by username", e);
             return null;
         }
     }
@@ -220,7 +263,13 @@ public class UserServiceImpl implements UserService {
         }
 
         try {
-            List<UserResponse> users = getUserResponseList();
+//            List<UserResponse> users = getUserResponseList();
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("data/user_data.json");
+            if (inputStream == null) {
+                throw new FileNotFoundException("File not found: data/user_data.json");
+            }
+            List<UserResponse> users = objectMapper.readValue(inputStream, new TypeReference<List<UserResponse>>() {});
+
             UserResponse user = users.stream()
                     .filter(u -> u.getUserName().equalsIgnoreCase(loginRequest.getUserName()))
                     .findFirst()

@@ -2,14 +2,19 @@ import React, { useEffect, useState } from "react";
 import { accountData } from "../constants"; // Import mock data for accounts
 import Card from "./Card";
 
-const AccountCards = ({data}) => {
-    const [accounts, setAccounts] = useState(data);
+const AccountCards = () => {
+   // State to hold accounts belonging to the selected user
+   const [accounts, setAccounts] = useState([]);
+   // State to manage the selected user
     const [userId, setUserId] = useState(1);
-
+    
     // Fetch accounts whenever userId changes
     useEffect(() => {
-        setAccounts(data);
-    }, [userId]);
+        const userAccounts = accountData.filter(
+          (account) => account.userId === String(userId)
+        );
+        setAccounts(userAccounts);
+      }, [userId]);
 
     // Calculate the total balance for "Saving" and "Checking" accounts
     const totalBalance = accounts

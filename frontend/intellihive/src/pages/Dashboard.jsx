@@ -8,7 +8,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { MdRefresh } from "react-icons/md";
 import { accountData, transactions } from "../constants";
-import axios from 'axios';
+// import axios from 'axios';
 
 // Data for the pie chart
 export const data = [
@@ -24,33 +24,33 @@ export const options = {
 
 
 const Dashboard = () => {
-    const [myTransactions, setMyTransactions] = useState([]);
-    const [myAccountData, setMyAccountData] = useState([]);
-    const [userId, setUserId] = useState("1");
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    // const [myTransactions, setMyTransactions] = useState([]);
+    // const [myAccountData, setMyAccountData] = useState([]);
+    // const [userId, setUserId] = useState("1");
+    // const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchAccountData = async () => {
-            try {
-                const response = await axios.get(`https://financial-dashboard-backend-account.onrender.com/api/account/user/${userId}`);
-                setMyAccountData(response.data);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
+    // useEffect(() => {
+    //     const fetchAccountData = async () => {
+    //         try {
+    //             const response = await axios.get(`https://financial-dashboard-backend-account.onrender.com/api/account/user/${userId}`);
+    //             setMyAccountData(response.data);
+    //         } catch (err) {
+    //             setError(err.message);
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     };
         
-        fetchAccountData();
-    }, [userId]);
+    //     fetchAccountData();
+    // }, [userId]);
 
-    useEffect(() => {
-        console.log("account ", myAccountData);
-    }, [myAccountData]);
+    // useEffect(() => {
+    //     console.log("account ", myAccountData);
+    // }, [myAccountData]);
     
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
+    // if (loading) return <div>Loading...</div>;
+    // if (error) return <div>Error: {error}</div>;
     
     return (
         <div className="grid grid-cols-5 ">
@@ -78,7 +78,7 @@ const Dashboard = () => {
                     </p>
 
                     {/* List of account cards */}
-                    <AccountCards data={myAccountData} />
+                    <AccountCards />
                 </div>
 
                 {/* Top Categories Expenses */}

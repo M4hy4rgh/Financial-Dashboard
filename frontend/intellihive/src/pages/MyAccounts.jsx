@@ -4,32 +4,32 @@ import { AccountCards, HeaderComponent } from "../components";
 import axios from 'axios';
 
 const MyAccounts = () => {
-    const [myAccountData, setMyAccountData] = useState([]);
-    const [userId, setUserId] = useState("1");
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    // const [myAccountData, setMyAccountData] = useState([]);
+    // const [userId, setUserId] = useState("1");
+    // const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchAccountData = async () => {
-            try {
-                const response = await axios.get(`https://financial-dashboard-backend-account.onrender.com/api/account/user/${userId}`);
-                setMyAccountData(response.data);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
+    // useEffect(() => {
+    //     const fetchAccountData = async () => {
+    //         try {
+    //             const response = await axios.get(`https://financial-dashboard-backend-account.onrender.com/api/account/user/${userId}`);
+    //             setMyAccountData(response.data);
+    //         } catch (err) {
+    //             setError(err.message);
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     };
 
-        fetchAccountData();
-    }, [userId]);
+    //     fetchAccountData();
+    // }, [userId]);
 
-    useEffect(() => {
-        console.log("account ", myAccountData);
-    }, [myAccountData]);
+    // useEffect(() => {
+    //     console.log("account ", myAccountData);
+    // }, [myAccountData]);
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
+    // if (loading) return <div>Loading...</div>;
+    // if (error) return <div>Error: {error}</div>;
 
     return (
         <>
@@ -44,7 +44,7 @@ const MyAccounts = () => {
                         <HeaderComponent title="My Accounts" placeholder="Search" />
 
                         {/* List of account cards */}
-                        <AccountCards data={myAccountData} />
+                        <AccountCards />
                     </div>
                 </div>
             </div>

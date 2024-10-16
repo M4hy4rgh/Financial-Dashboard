@@ -11,12 +11,12 @@ const defaultAccount = {
 };
 
 const Card = ({ account }) => {
-    const [accounts, setAccounts] = useState([]);
+    // const [accounts, setAccounts] = useState([]);
     
-    // Fetch accounts whenever userId changes
-    useEffect(() => {
-        setAccounts(account);
-    }, [account]);
+    // // Fetch accounts whenever userId changes
+    // useEffect(() => {
+    //     setAccounts(account);
+    // }, [account]);
     
 
 

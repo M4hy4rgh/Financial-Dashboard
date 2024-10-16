@@ -45,8 +45,6 @@ const Login = () => {
                             placeholder="Enter your Username"
                             className="input input-bordered w-full rounded-lg px-4 py-2"
                             value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            required
                         />
                     </div>
 
@@ -60,8 +58,6 @@ const Login = () => {
                             placeholder="Enter your password"
                             className="input input-bordered w-full rounded-lg px-4 py-2"
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
                         />
                     </div>
 

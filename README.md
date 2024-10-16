@@ -1,6 +1,7 @@
 # IntelliHive Financial Dashboard
 As part of Intelliware and [happy hive](https://happyhive.work/) challenge
 
+## Demo Video Link: [YouTube](https://youtu.be/Stbytys3Bxo)
 Visit our demo website 👉 https://financial-dashboard-seven-sigma.vercel.app/ 👈
 
 <p>
@@ -15,7 +16,6 @@ Visit our demo website 👉 https://financial-dashboard-seven-sigma.vercel.app/ 
 - **Full Stack Developer & Front-End Lead**: [Negin Heidari](https://github.com/neginheidarii)
 - **Full Stack Developer & Back-End Lead**: [Mahyar Ghasemi Khah](https://github.com/M4hy4rgh) 
 
-## Demo Video Link: Coming Soon
 
 ## Problem to Solve 🚀
 The IntelliHive financial dashboard provides a **minimalist** and **user-friendly** interface focused on displaying **account balances** and **recent transactions**. It addresses the need for a simple, accessible tool that allows users to monitor their finances without the complexity of advanced design features or mobile responsiveness.
@@ -150,8 +150,6 @@ The backend is developed using a robust Java-based microservices architecture.
 - Expanded filtering options for transactions by category or date range.
 
 ## Installation and Setup ⚙️
-[To Be Updated]
-
-1. Clone this repository:
+Clone this repository:
    ```bash
    git clone https://github.com/neginheidarii/Financial-Dashboard.git

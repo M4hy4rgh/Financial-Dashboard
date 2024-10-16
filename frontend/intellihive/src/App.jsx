@@ -1,18 +1,46 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import { Navbar } from "./components/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  Dashboard,
+  PayBills,
+  Profile,
+  Settings,
+  Transactions,
+  TransferMoney,
+  MyAccounts,
+  SignUp,
+  Login,
+  ForgotPassword,
+} from "./pages/index";
+import Navbar from "./components/Navbar";
+
+
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
-    <div className="flex justify-center items-center">
-      <h1 className="text-center text-3xl font-bold underline">Hello world!</h1>
-      <Navbar />
-    </div>
+    <Router>
+      <div className="">
+        <div className="">
+          {/* Adjust margin to match navbar width */}
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/pay-bills" element={<PayBills />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/my-accounts" element={<MyAccounts />} />
+            <Route path="/transfer-money" element={<TransferMoney />} />
+            <Route path="/transactions" element={<Transactions />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 
 export default App;
+

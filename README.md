@@ -1,24 +1,35 @@
 # IntelliHive Financial Dashboard
+As part of Intelliware and [happy hive](https://happyhive.work/) challenge
+
+## Meet the Team - The Avengers
+- **Business Systems Analyst**: [Pete Umpaipant](https://github.com/petewachi)
+- **Full Stack Developer & Front-End Lead**: [Negin Heidari](https://github.com/neginheidarii)
+- **Full Stack Developer & Back-End Lead**: [Mahyar Ghasemi Khah](https://github.com/M4hy4rgh) 
+
+## Demo Video Link: Coming Soon
 
 ## Problem to Solve
-The IntelliHive financial dashboard offers a **minimalist** and **user-friendly** interface that focuses on displaying **account balances** and **recent transactions**. It addresses the need for a simple, accessible tool that allows users to monitor their finances easily, without the complexity of advanced design features or mobile responsiveness.
+The IntelliHive financial dashboard provides a **minimalist** and **user-friendly** interface focused on displaying **account balances** and **recent transactions**. It addresses the need for a simple, accessible tool that allows users to monitor their finances without the complexity of advanced design features or mobile responsiveness.
 
 ## Value Proposition
-- **Simplicity and Efficiency**: IntelliHive provides a clean, intuitive interface for quick access to essential financial information, eliminating the need to navigate complex menus.
+- **Simplicity and Efficiency**: IntelliHive delivers a clean, intuitive interface that provides quick access to essential financial information, eliminating complex navigation.
+- **Personalization without Complexity**: Features such as the ability to manage account lists allow users to tailor their experience, ensuring that their most-used accounts are always readily accessible.
 
-## Target Market
-- **Non-Tech-Savvy Users**: People who need a simple, accessible interface for easy account navigation.
-- **New Bank Account Owners**: Individuals new to banking who require a clear, user-friendly experience to manage and understand their accounts.
-- **Advanced Users**: Users familiar with personal finance management who need deeper insights, such as account summaries and spending breakdowns, while valuing simplicity.
+## Target Users - Retail Banking
+- **Non-Tech-Savvy Users**: Users seeking a simple, accessible interface for easy account navigation.
+- **New Bank Account Owners**: Individuals new to banking who need a clear, user-friendly experience to manage and understand their accounts.
+- **Advanced Users**: Users who are familiar with personal finance management and require deeper insights, such as account summaries and spending breakdowns, while still valuing simplicity.
 
-## MVP Solution
-
+## Our Solution
 ### Core Functionalities:
-- Display individual account balances along with detailed account information.
-- Show recent transactions for each linked account, offering users a quick overview of their financial activity.
-- Provide real-time balance updates through automatic/manual refresh, ensuring users always see the most up-to-date information.
+- Display individual account balances with detailed account information.
 
 ### Essential Differentiators:
+- **Self-Arranged Account List**: Allows users to rearrange their accounts based on personal importance, prioritizing the most critical accounts at the top.
+
+### Optional (Mock-up Features):
+- **Recent Transactions**: Show recent transactions for each linked account, offering users a quick overview of their financial activity.
+- **Real-Time Data Updates**: Provide real-time balance updates via automatic/manual refresh, ensuring users always see the most up-to-date information.
 - **Spending Overview Card**: A simple card summarizing spending by key categories (e.g., Groceries, Utilities), giving users a clear snapshot of where their money is going.
 
 ## Project Timeline (October 2024)
@@ -29,64 +40,105 @@ The IntelliHive financial dashboard offers a **minimalist** and **user-friendly*
 ## User Stories and Technical Design
 
 ### **User Stories**
+[More Details](https://github.com/neginheidarii/Financial-Dashboard/blob/777f84519fef2c502ed36e81222a1a3d1925021c/documentation/Avengers%20-%20User%20Stories%20%26%20Acceptance%20Criteria.docx)
 1. **Dashboard - Account Balances**
    - *As a retail user, I want to view my account balances for all linked accounts (checking, savings, credit, investment) on the dashboard, so I can monitor my financial status.*
 
 2. **Recent Transactions Snapshot**
    - *As a retail user, I want to see a snapshot of my recent transactions, so I can monitor my recent spending and deposits.*
+  
+3. **Dashboard - Rearranging Account List**
+   - *As a user, I want to be able to rearrange my account list in the "My Account" page, so I can prioritize my most important accounts at the top of the dashboard.*
 
-3. **Top Expense**
+4. **Top Expense Visualization**
    - *As a user, I want to view a visualization of my spending by category, so I can understand how much I spend on each category (e.g., groceries, utilities, entertainment).*
 
-4. **User Access Control (Login)**
+5. **User Access Control (Log in/Log out)**
    - *As a user, I want to log into the system using my username and password, so I can securely access my account.*
    - *As a user, I want an option to reset my password if I forget it, so I can regain access to my account.*
    - *As a system administrator, I want accounts to be locked after 3 failed login attempts, so that the system remains secure.*
+   - *As a user, I want to be able to log out from any screen within the system, so I can securely exit my account when I'm done.*
 
-5. **Display Feature Navigation**
+6. **Display Feature Navigation**
    - *As a user, I want easy access to core banking features from the dashboard, so I can perform tasks like viewing account and transaction details, making transfers, and paying bills.*
-
-### **Wireframes**
-
-[ To Be Updated ]
 
 ---
 
-### **Technical Design** [ To Be Updated ]
-- **Frontend**: [ To Be Updated ]
+### **Wireframes**
+<p> 
+  <img src="documentation/Wireframes/Wireframe-Dashboard.png" alt="Main Dashboard" style="width: 1080px">
+  <img src="documentation/Wireframes/Wireframe-Login.png" alt="Main Dashboard" style="width: 1080px">
+  <img src="documentation/Wireframes/Wireframe-Dashboard.png" alt="Main Dashboard" style="width: 1080px">
+
+</p>
+
+---
+
+### **Technical Design** [To Be Updated]
+
+#### **Frontend**:
   - **Pages**:
     1. **Sign-In Page**: A login screen for user access control, including a "Forgot Password" option.
     2. **Main Financial Dashboard**:
-       - Account Overview: Display individual account balances.
-       - Recent Transactions: List recent transactions for linked accounts.
-       - Top Spending Categories: Show the user’s top spending categories in a simple card.
-  - **Technologies**:
+       - Account Overview: Displays individual account balances.
+       - Recent Transactions: Lists recent transactions for linked accounts.
+       - Top Spending Categories: A simple card showing the user’s top spending categories.
 
-- **Backend**: [ To Be Updated ]
+#### Frontend Technologies
+The frontend of this project is built with modern JavaScript tools and frameworks to ensure a responsive, scalable, and maintainable user interface. Below is an overview of the technologies used:
+- **Core Technologies**
+   - **JavaScript**: The foundation for interactive components and dynamic content.
+   - **React**: A powerful JavaScript library for building user interfaces using a component-based architecture.
+- **Styling and UI Customization**
+   - **TailwindCSS**: A utility-first CSS framework for fast styling and design consistency.
+   - **DaisyUI**: A UI component library for TailwindCSS, offering customizable and professional UI components.
+- **Build Tool**
+   - **Vite**: A fast and modern build tool that offers instant development server startup and optimized production builds.
+- **Additional React Libraries**
+   - **React DOM**: For rendering React components to the DOM.
+   - **React Router DOM**: For client-side routing and seamless navigation within the app.
+   - **React Icons**: A rich icon library for enhancing the user interface.
+
+#### **Backend**:
   - **Services**:
-    1. **User Service**: Handles user authentication, password resets, and login attempts.
+    1. **User Service**: Manages user authentication, password resets, and login attempts.
     2. **Account Service**: Provides account data, including balances and transaction history.
     3. **Transaction Service**: Manages user transaction data and spending categories.
-  - **Technologies**: Java, RESTful APIs, Static JSON for demo data, PostgreSQL for the "should be" solution.
+
+#### Backend Technologies
+The backend is developed using a robust Java-based microservices architecture.
+
+- **Java**: Core backend programming language.
+- **Spring Boot**: A powerful framework for building microservices and REST APIs.
+- **Spring Security**: For handling authentication, session management, and authorization.
+- **PostgreSQL**: Database for persistent data storage.
+- **JSON**: Used for static data handling in the demo version.
+- **AWS**: Cloud infrastructure for scalability in the proposed solution.
+  
+---
 
 ## Demo Solution vs. "Should Be" Solution
 
 ### **Demo Solution** (Implemented under time constraints):
 - **Frontend**: Sign-in page and main financial dashboard (account overview, recent transactions, top spending categories).
-- **Backend**: User-service, account-service, and transaction-service. The backend connects to APIs, returning data from a static JSON file (no real database or security implemented).
+- **Backend**: User-service and account-service for the demo dashboard. The backend connects to APIs, returning data from static JSON files.
 
-### **"Should Be" Solution**:
-- **Frontend**: [ To Be Updated ].
-- **Backend**: Fully integrated with a **Postgres database** for real-time data management. **Security measures** like user authentication, password encryption, and rate limiting are implemented.
+### **Proposed Solution**:
+- **Frontend**: React-based interface with customizations for handling user accounts, transactions, and more.
+- **Backend**: Microservices architecture deployed on **AWS**, fully integrated with a **Postgres database** for real-time data management. Security is enhanced with **Spring Security** for authentication and authorization.
+   - PostgreSQL Database Schema for current dashboard design:
+      - <img src="documentation/intellihive_DB.png" alt="Proposed Database Schema (Simple)" style="width: 540px">
+- **Proposed Architecture**:
+   - <img src="documentation/intelliHive Architecture.drawio.png" alt="Proposed Architecture" style="width: 1080px">
 
-## Features to be Added
+
+## Future Features Considered for Addition
 - Account grouping and customization for an enhanced user experience.
 - Advanced privacy features like account balance visibility toggles for better control.
 - Expanded filtering options for transactions by category or date range.
 
 ## Installation and Setup
-
-[ To Be Updated ]
+[To Be Updated]
 
 1. Clone this repository:
    ```bash

@@ -12,8 +12,7 @@ services:
     container_name: user-service
     environment:
       SPRING_PROFILES_ACTIVE: docker
-    networks:
-      - intellihive
+
 
   account-service:
     image: account-service
@@ -25,8 +24,7 @@ services:
     container_name: account-service
     environment:
       SPRING_PROFILES_ACTIVE: docker
-    networks:
-      - intellihive
+
 
   transaction-service:
     image: transaction-service
@@ -38,9 +36,3 @@ services:
     container_name: transaction-service
     environment:
       SPRING_PROFILES_ACTIVE: docker
-    networks:
-      - intellihive
-
-networks:
-  intellihive:
-    driver: bridge

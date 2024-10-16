@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar"; // Assuming you have a Navbar component
-
+import Navbar from "../components/Navbar";
 
 const PayBills = () => {
   const [billType, setBillType] = useState("Utilities");
   const [amount, setAmount] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("Account");
   const [account, setAccount] = useState("Account 1");
-  const [expiryDate, setExpiryDate] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
   // Sample data for accounts and payment history
-  const accounts = ["Account 1", "Account 2", "Account 3"];
+  const accounts = ["Checking", "Credit", "Saving"];
   const paymentHistory = [
     {
       id: 1,
@@ -31,7 +29,7 @@ const PayBills = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logic for processing payment goes here
+    // Logic for processing payment should go here
     setSuccessMessage(
       `Successfully paid ${amount} for ${billType} using ${account}!`
     );
@@ -41,15 +39,13 @@ const PayBills = () => {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen  bg-[#f4f7fe]">
       {/* Fixed Navbar on the left */}
       <Navbar />
 
       {/* Main content area */}
       <div className="flex-1 p-6 ml-64">
-        {" "}
-        {/* Adjust margin left to match navbar width */}
-        <div className="bg-white p-6 rounded-lg shadow-md mb-5">
+        <div className="bg-white p-6 rounded-lg shadow-md ml-9 mr-4 my-5">
           <h2 className="text-lg font-semibold mb-4">Pay Bills</h2>
           <form onSubmit={handleSubmit} className="grid grid-cols-5 gap-4">
             {/* Bill Type Selector */}
@@ -87,7 +83,7 @@ const PayBills = () => {
             </div>
 
             {/* Account Selector */}
-            <div className="col-span-5 md:col-span-3">
+            <div className="col-span-5 md:col-span-3 ">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Select Account <span className="text-red-500">*</span>
               </label>
@@ -135,8 +131,9 @@ const PayBills = () => {
             <p className="text-green-500 mt-4">{successMessage}</p>
           )}
         </div>
+
         {/* Auto Bill Payment Section */}
-        <div className="bg-white p-6 rounded-lg shadow-md mb-5">
+        <div className="bg-white p-6 rounded-lg shadow-md ml-9 mr-4 my-5">
           <h2 className="text-lg font-semibold mb-4">Auto Bill Payments</h2>
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
@@ -166,8 +163,9 @@ const PayBills = () => {
             </tbody>
           </table>
         </div>
+
         {/* Payment History Section */}
-        <div className="bg-white p-6 rounded-lg shadow-md mb-5">
+        <div className="bg-white p-6 rounded-lg shadow-md ml-9 mr-4 my-5">
           <h2 className="text-lg font-semibold mb-4">Payment History</h2>
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">

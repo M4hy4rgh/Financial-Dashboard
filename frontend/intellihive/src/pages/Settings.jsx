@@ -1,27 +1,28 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar"; // Import your Navbar component
+import { Navbar } from "../components";
 
 const Settings = () => {
+  // State management for different settings
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
-  const [currency, setCurrency] = useState("USD"); // Default currency
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  // Toggles dark mode state
   const handleToggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };
 
+  // Handles saving settings
   const handleSaveSettings = () => {
-    // Logic to save settings
     alert("Settings saved successfully!");
   };
 
+  // Handles password change form submission
   const handlePasswordChange = (e) => {
     e.preventDefault();
     if (newPassword === confirmPassword) {
-      // Logic to change the password
       alert("Password changed successfully!");
     } else {
       alert("Passwords do not match.");
@@ -30,8 +31,8 @@ const Settings = () => {
 
   return (
     <div
-      className={`min-h-screen grid grid-cols-5 ${
-        isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
+      className={`min-h-screen grid grid-cols-5   ${
+        isDarkMode ? "bg-gray-900 text-white" : "bg-[#f4f7fe] text-black"
       }`}
     >
       {/* Fixed Navbar */}
@@ -42,29 +43,6 @@ const Settings = () => {
       {/* Settings Content */}
       <div className="col-span-4 px-8 py-5">
         <h1 className="text-2xl font-semibold mb-6">Settings</h1>
-
-        
-
-        {/* Currency Preferences */}
-        <div className="bg-white p-6 rounded-lg shadow-md mb-5">
-          <h2 className="text-lg font-semibold mb-4">Currency Preferences</h2>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Select Currency
-            </label>
-            <select
-              value={currency}
-              onChange={(e) => setCurrency(e.target.value)}
-              className="select select-bordered w-full rounded-lg px-4 py-2"
-            >
-              <option value="USD">USD</option>
-              <option value="EUR">EUR</option>
-              <option value="GBP">GBP</option>
-              <option value="CAD">CAD</option>
-              <option value="AUD">AUD</option>
-            </select>
-          </div>
-        </div>
 
         {/* Display Settings */}
         <div className="bg-white p-6 rounded-lg shadow-md mb-5">
@@ -149,7 +127,7 @@ const Settings = () => {
         <div className="flex">
           <button
             onClick={handleSaveSettings}
-            className="btn bg-[#004A98] text-white py-2 px-4 rounded-lg"
+            className="btn bg-[#47bd66] text-white py-2 px-4 rounded-lg"
           >
             Save Settings
           </button>

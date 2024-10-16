@@ -1,18 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+// Icon imports for visual indicators in the menu
 import { RiDashboardHorizontalFill } from "react-icons/ri";
 import { MdAccountBalance, MdAccountCircle } from "react-icons/md";
 import { FaMoneyBillTransfer, FaMoneyBills } from "react-icons/fa6";
 import { IoLogOut } from "react-icons/io5";
 import { IoMdSettings } from "react-icons/io";
-import intellihive from "../assets/logo/intellihive.svg"
-import { Link } from "react-router-dom";
 
+// Importing the logo
+import intellihive from "../assets/logo/intellihive.svg";
 
 const Navbar = () => {
   return (
+    
+    // Sidebar container - Fixed to the left side of the screen
     <div className="fixed min-h-screen flex justify-start items-start ">
       <ul className="menu bg-white w-72 h-screen absolute left-0 shadow-md">
         <img src={intellihive} alt="intellihive" className="w-44 m-8" />
+
+        {/* Menu items */}
         <li>
           <Link to="/" className="py-4 text-base">
             <RiDashboardHorizontalFill />
@@ -50,7 +57,7 @@ const Navbar = () => {
           </Link>
         </li>
         <Link
-          className="btn bg-[#004A98] w-40 absolute bottom-0 m-5 text-white"
+          className="btn bg-transparent border-red-500 w-40 absolute bottom-0 m-5 text-red-500"
           to="/login"
         >
           <IoLogOut />
@@ -60,6 +67,5 @@ const Navbar = () => {
     </div>
   );
 };
-
 
 export default Navbar;

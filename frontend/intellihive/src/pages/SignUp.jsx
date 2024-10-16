@@ -1,21 +1,20 @@
 import React from "react";
-import signup from "../assets/img/signup.svg"; // Replace with your image path
-import intellihive from "../assets/logo/intellihive.svg"; // Replace with your logo path
 import { Link } from "react-router-dom";
+
+import signup from "../assets/img/signup.svg";
+import intellihive from "../assets/logo/intellihive.svg";
 
 const SignUp = () => {
   return (
     <div className="min-h-screen flex">
       {/* Left side: Logo and Sign-Up Form */}
       <div className="w-full md:w-1/2 flex flex-col items-center justify-center px-12">
-        {/* Logo */}
         <div className="mb-8">
           <img src={intellihive} alt="Intellihive" className="w-60" />
         </div>
 
         {/* Sign-Up Form */}
         <form className="space-y-6 w-3/4 max-w-sm">
-          {/* First Name and Last Name */}
           <div className="flex gap-4">
             <div className="w-1/2">
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -91,7 +90,10 @@ const SignUp = () => {
           {/* Login link */}
           <p className="text-center text-sm mt-4">
             Already have an account?{" "}
-            <Link to="/login" className="text-[#004A98] font-medium hover:underline">
+            <Link
+              to="/login"
+              className="text-[#004A98] font-medium hover:underline"
+            >
               Login
             </Link>
           </p>
@@ -103,11 +105,7 @@ const SignUp = () => {
         <h1 className="text-3xl font-semibold text-white mb-6">
           Create your Financial Dashboard
         </h1>
-        <img
-          src={signup}
-          alt="Sign-Up illustration"
-          className="w-full "
-        />
+        <img src={signup} alt="Sign-Up illustration" className="w-full " />
       </div>
     </div>
   );

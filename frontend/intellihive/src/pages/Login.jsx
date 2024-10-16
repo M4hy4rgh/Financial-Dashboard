@@ -1,14 +1,13 @@
-import React from 'react'
-import loginPic from '../assets/img/login.svg'
-import intellihive from '../assets/logo/intellihive.svg'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import loginPic from "../assets/img/login.svg";
+import intellihive from "../assets/logo/intellihive.svg";
 
 const Login = () => {
   return (
     <div className="min-h-screen flex">
       {/* Left side: Logo and Login Form */}
       <div className="w-full md:w-1/2 flex flex-col items-center justify-center px-12">
-        {/* Logo */}
         <div className="mb-8">
           <img src={intellihive} alt="Intellihive" className=" w-60 " />
         </div>
@@ -26,6 +25,7 @@ const Login = () => {
             />
           </div>
 
+          {/* Password Input */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Password
@@ -37,6 +37,7 @@ const Login = () => {
             />
           </div>
 
+          {/* Remember Me & Forgot Password */}
           <div className="flex justify-between items-center">
             <label className="flex items-center space-x-2">
               <input type="checkbox" className="checkbox " />
@@ -50,8 +51,9 @@ const Login = () => {
             </Link>
           </div>
 
+          {/* Login Button */}
           <Link
-          to="/"
+            to="/"
             type="submit"
             className="btn bg-[#004A98] text-white w-full rounded-lg py-2"
           >
@@ -85,6 +87,6 @@ const Login = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Login
+export default Login;

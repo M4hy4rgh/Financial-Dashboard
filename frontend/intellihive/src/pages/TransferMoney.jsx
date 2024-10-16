@@ -1,8 +1,26 @@
 import React from "react";
-import { Card, Navbar } from "../components/index";
-import { RiArrowDownSLine } from "react-icons/ri";
-import { SlMagnifier } from "react-icons/sl";
-import { MdRefresh } from "react-icons/md";
+import { HeaderComponent, Navbar } from "../components";
+import { getIcon } from "../assets/index";
+
+// Define the available transaction functions
+const TransactionsFunctions = [
+  {
+    title: "Transfer Between Account",
+    icon: getIcon("transfer"),
+  },
+  {
+    title: "Manage Transactions",
+    icon: getIcon("manage"),
+  },
+  {
+    title: "Send Money",
+    icon: getIcon("sendmoney"),
+  },
+  {
+    title: "Request Money",
+    icon: getIcon("reqmoney"),
+  },
+];
 
 const Transactions = () => {
   return (
@@ -12,34 +30,33 @@ const Transactions = () => {
           <Navbar />
         </div>
 
-        <div className="col-span-4 bg-[#f4f7fe] px-4 py-5">
+        <div className="col-span-4 bg-[#f4f7fe] px-4 py-5 min-h-screen">
           {/* Heading */}
-          <div className="flex justify-between items-center m-3 mb-8">
-            <h1 className="font-sans font-bold text-lg">Transfer Money</h1>
-            <div className="relative w-full max-w-md">
-              {/* Magnifier Icon */}
-              <span className="absolute inset-y-0 left-3 flex items-center text-gray-500">
-                <SlMagnifier />
-              </span>
+          <HeaderComponent title="Transfer Money" placeholder="Search" />
 
-              {/* Input Field */}
-              <input
-                type="text"
-                placeholder="Search"
-                className="input input-bordered w-full pl-10 rounded-2xl"
-              />
-            </div>
+          {/* Grid of Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {TransactionsFunctions.map((func, index) => (
+              <div
+                key={index}
+                className="card bg-white shadow-md rounded-lg p-4 flex flex-col items-center text-center"
+              >
+                {/* Icon for the function */}
+                <img
+                  src={func.icon}
+                  alt={func.title}
+                  className="w-12 h-12 mb-4"
+                />
+                {/* Function title */}
+                <h2 className="text-lg font-semibold mb-2">{func.title}</h2>
+                {/* Action button to select the function */}
+                <button className="btn bg-[#004A98] text-white mt-4 py-2 px-4 rounded-full">
+                  Select
+                </button>
+              </div>
+            ))}
           </div>
-
-
-            <div className="grid grid-cols-4 gap-4">
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-            </div>
-          </div>
-  
+        </div>
       </div>
     </div>
   );

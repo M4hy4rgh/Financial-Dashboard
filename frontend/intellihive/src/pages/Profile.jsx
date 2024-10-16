@@ -1,11 +1,10 @@
 import React from "react";
-import Navbar from "../components/Navbar"; // Import your Navbar component
-import profilePic from "../assets/img/profilePic.jpg"; // Replace with your actual image path
+import { Navbar } from "../components";
+import profilePic from "../assets/img/profilePic.jpg";
 
 const Profile = () => {
   return (
     <div className="min-h-screen grid grid-cols-5">
-      {/* Fixed Navbar */}
       <div className="col-span-1 min-w-[10rem] max-w-[10rem] bg-[#f4f7fe] h-full">
         <Navbar />
       </div>
@@ -20,8 +19,8 @@ const Profile = () => {
             className="w-24 h-24 rounded-full border-2 border-[#004A98] mr-4"
           />
           <div>
-            <h1 className="text-2xl font-semibold">John Doe</h1>
-            <p className="text-gray-600">johndoe@example.com</p>
+            <h1 className="text-2xl font-semibold">Negin Heidari</h1>
+            <p className="text-gray-600">negin@intelliware.com</p>
           </div>
         </div>
 
@@ -32,13 +31,13 @@ const Profile = () => {
             <label className="block text-sm font-medium text-gray-700">
               First Name:
             </label>
-            <p className="text-gray-800">John</p>
+            <p className="text-gray-800">Negin</p>
           </div>
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">
               Last Name:
             </label>
-            <p className="text-gray-800">Doe</p>
+            <p className="text-gray-800">Heidari</p>
           </div>
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">
@@ -54,13 +53,10 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* Actions */}
+        {/* Edit Profile */}
         <div className="flex space-x-4 mb-5">
           <button className="btn bg-[#004A98] text-white py-2 px-4 rounded-lg">
             Edit Profile
-          </button>
-          <button className="btn bg-red-500 text-white py-2 px-4 rounded-lg">
-            Logout
           </button>
         </div>
       </div>

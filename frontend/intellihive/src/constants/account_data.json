@@ -25,7 +25,7 @@
     "id": 3,
     "accountNumber": "444444444",
     "accountType": "Credit",
-    "balance": 10000.0,
+    "balance": 1500.0,
     "userId": "1",
     "currency": "CAD",
     "createdAt": "2024-10-02T12:00:00Z",

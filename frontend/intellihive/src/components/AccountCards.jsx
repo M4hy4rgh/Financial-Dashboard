@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { accountData } from "../constants"; // Import mock data for accounts
 import Card from "./Card";
+import Loader from "./Loader";
 
-const AccountCards = () => {
-   // State to hold accounts belonging to the selected user
-   const [accounts, setAccounts] = useState([]);
-   // State to manage the selected user
-    const [userId, setUserId] = useState(1);
+const AccountCards = ({data}) => {
+    // State to hold accounts belonging to the selected user
+    const [accounts, setAccounts] = useState([]);   
     
     // Fetch accounts whenever userId changes
     useEffect(() => {
-        const userAccounts = accountData.filter(
-          (account) => account.userId === String(userId)
-        );
-        setAccounts(userAccounts);
-      }, [userId]);
+        // const userAccounts = accountData.filter(
+        //   (account) => account.userId === String(userId)
+        // );
+        // setAccounts(userAccounts);
+        // console.log("data ", data);
+        setAccounts(data);
+    }, [data]);
+
 
     // Calculate the total balance for "Saving" and "Checking" accounts
     const totalBalance = accounts
@@ -26,11 +28,11 @@ const AccountCards = () => {
 
     // Show a loading message if no accounts are available
     if (accounts.length === 0) {
-        return <p>Loading account details...</p>;
+        return <Loader text={"Loading account details..."} />;
     }
 
     return (
-        <div className="flex flex-col justify-center items-center space-y-5 divide-y min-w-full">
+        <div className="flex flex-col justify-center items-center space-y-5 min-w-full">
             {/* Display a grid of account cards */}
             <div className="grid grid-cols-3 gap-4">
                 {accounts.map((account) => (
@@ -39,7 +41,7 @@ const AccountCards = () => {
             </div>
 
             {/* Display the total balance of "Checking" and "Saving" accounts */}
-            <div className="flex space-x-2 w-full py-3 self-end">
+            <div className="flex space-x-2 w-full pt-5 self-end border-t-[1px] border-t-neutral-content">
                 <h1 className="font-sans font-normal text-lg">
                     Total Balance (Checking & Saving):
                 </h1>

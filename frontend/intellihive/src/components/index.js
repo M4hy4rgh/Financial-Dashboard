@@ -4,6 +4,7 @@ import TransactionsComponent from "./TransactionsComponent";
 import AccountCards from "./AccountCards";
 import TopCategoriesExpenses from "./TopCategoryExpenses";
 import HeaderComponent from "./HeaderComponent";
+import Loader from "./Loader";
 
 export {
   Card,
@@ -11,5 +12,6 @@ export {
   TransactionsComponent,
   AccountCards,
   TopCategoriesExpenses,
-  HeaderComponent,
+    HeaderComponent,
+    Loader
 };

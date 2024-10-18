@@ -15,7 +15,8 @@ const Card = ({ account }) => {
     
     // // Fetch accounts whenever userId changes
     // useEffect(() => {
-    //     setAccounts(account);
+    //     // setAccounts(account);
+    //     console.log("account ", account);
     // }, [account]);
     
 

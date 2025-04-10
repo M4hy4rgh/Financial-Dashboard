@@ -1,6 +1,10 @@
 # IntelliHive Financial Dashboard
 As part of Intelliware and [happy hive](https://happyhive.work/) challenge
 
+
+## ⚠️⚠️⚠️
+Note: The backend is hosted on Render's free tier, which may result in a slightly longer initial response time due to cold starts.
+
 ## Demo Video Link: [YouTube](https://youtu.be/Stbytys3Bxo)
 Visit our demo website 👉 https://financial-dashboard-seven-sigma.vercel.app/ 👈
 
